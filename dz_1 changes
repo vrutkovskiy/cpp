@@ -1,0 +1,132 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class String
+{
+	char *str = nullptr;
+	unsigned size = 0;
+public:
+	String() : str(nullptr), size(0) //№1 конструктор по умолчанию
+	{}
+	void assign(const char *s); //№2 изменение строки
+	String(const char *s) //№1 конструктор с одним аргументом
+	{
+		assign(s);
+	}
+	char *get_str() //№3 возвращение строки
+	{
+		return str;
+	}
+	int get_size() //№4 длина строки
+	{
+		return size;
+	}
+	void concat(const char *s); //№5 добавление строки к существующей
+	void insertchar(); //№6 вставка символа	
+	void codeascii() //№7 вывод кодов аски
+	{
+		for (int i = 0; str[i] != '\0'; ++i)
+			printf_s("%c = %d\n", str[i], str[i]);
+	}
+	void toupregister()	//№8 в верхний регистр
+	{
+		_strupr_s(str, size);
+	}
+	void tolowregister() //№9 в нижний регистр
+	{
+		_strlwr_s(str, size);
+	}
+	~String()
+	{
+		if (str)
+		{
+			delete[] str;
+			str = nullptr;
+		}
+	}
+};
+int main()
+{
+	String obj1;				      	 // инициализация
+	String obj2("How much watch?"); // инициализация 2
+	cout << obj2.get_str() << endl;
+	obj1.assign("Six clock.");
+	cout << obj1.get_str() << endl;
+	cout << "The length of your string - " << obj1.get_size() << endl;
+
+	obj1.assign("Such much? ");
+	obj1.concat("For whom how.");
+	cout << obj1.get_str() << endl;
+	cout << "The length of your string - " << obj1.get_size() << endl;
+
+	obj1.insertchar();
+	cout << obj1.get_str() << endl;
+
+	obj1.toupregister();
+	cout << obj1.get_str() << endl;
+
+	obj1.tolowregister();
+	cout << obj1.get_str() << endl;
+
+	obj1.codeascii();
+	cout << obj1.get_str() << endl;
+	return 0;
+}
+void String::assign(const char *s)
+{
+	if (str)
+	{
+		delete[] str;
+		str = nullptr;
+	}
+	if (s && *s)
+	{
+		size = strlen(s) + 1;
+		str = new char[size];
+		strcpy_s(str, size, s);
+	}
+}
+void String::concat(const char *s)
+{
+	if (s && *s)
+	{
+		int sizenew = strlen(s) + size;
+		char *strnew = new char[sizenew];
+		strcpy_s(strnew, size, str);
+		delete[] str;
+		strcat(strnew, s);
+		size = sizenew;
+		str = strnew;
+	}
+}
+void String::insertchar()
+{
+	char ch = 'X';		//символ для вставки
+	int posit = 13;		//позиция для вставки
+	int maxiter;		//максимальное значение итератора
+	if (posit >= 0 && posit <= size)
+	{
+		++size;
+		char *newstr = new char[size];
+		for (int i = 0; str[i] != '\0'; ++i)
+		{
+			if (i < posit)
+				newstr[i] = str[i];
+			else
+			if (i == posit)
+			{
+				newstr[i] = ch;
+				newstr[i + 1] = str[i];
+			}
+			else
+				newstr[i + 1] = str[i];
+			maxiter = i;
+		}
+		newstr[maxiter + 2] = '\0';
+		delete[] str;
+		str = newstr;
+	}
+	else
+		cout << "Enter right position" << endl;
+}
