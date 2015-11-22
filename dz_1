@@ -1,4 +1,3 @@
-#include "stdafx.h"		
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -8,33 +7,33 @@ class String
 	char *str = nullptr;
 	unsigned size = 0;
 public:
-	String() : str(nullptr), size(0)					//№1 конструктор по умолчанию
+	String() : str(nullptr), size(0) //№1 конструктор по умолчанию
 	{}
-	void assign(const char *s);							//№2 изменение строки
-	String(const char *s)								//№1 конструктор с одним аргументом
+	void assign(const char *s); //№2 изменение строки
+	String(const char *s) //№1 конструктор с одним аргументом
 	{
 		assign(s);
 	}
-	char *get_str()										//№3 возвращение строки
+	char *get_str() //№3 возвращение строки
 	{
 		return str;
 	}
-	int get_size()										//№4 длина строки
+	int get_size() //№4 длина строки
 	{
 		return size;
 	}
-	void concat(const char *s);							//№5 добавление строки к существующей
-	void insertchar();									//№6 вставка символа	
-	void codeascii()									//№7 вывод кодов аски
+	void concat(const char *s); //№5 добавление строки к существующей
+	void insertchar(); //№6 вставка символа	
+	void codeascii() //№7 вывод кодов аски
 	{
 		for (int i = 0; str[i] != '\0'; ++i)
-			printf("%c = %d\n", str[i], str[i]);
+			printf_s("%c = %d\n", str[i], str[i]);
 	}
-	void toupregister()									//№8 в верхний регистр
+	void toupregister()	//№8 в верхний регистр
 	{
 		_strupr_s(str, size);
 	}
-	void tolowregister()								//№9 в нижний регистр
+	void tolowregister() //№9 в нижний регистр
 	{
 		_strlwr_s(str, size);
 	}
@@ -49,8 +48,8 @@ public:
 };
 int main()
 {
-	String obj1;										// инициализация
-	String obj2("How much watch?");					// инициализация 2
+	String obj1;					 // инициализация
+	String obj2("How much watch?"); // инициализация 2
 	cout << obj2.get_str() << endl;
 	obj1.assign("Six clock.");
 	cout << obj1.get_str() << endl;
@@ -103,9 +102,9 @@ void String::concat(const char *s)
 }
 void String::insertchar()
 {
-	char ch = 'X';
-	int posit = 13;
-	int maxiter;
+	char ch = 'X';		//символ для вставки
+	int posit = 13;		//позиция для вставки
+	int maxiter;		//максимальное значение итератора
 	if (posit >= 0 && posit <= size)
 	{
 		++size;
