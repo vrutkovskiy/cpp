@@ -7,7 +7,7 @@ class String
 	char *str = nullptr;
 	unsigned size = 0;
 public:
-	String() : str(nullptr), size(0) //¹1 default constructor
+	String()  //¹1 default constructor
 	{}
 	void assign(const char *s); //¹2 changing of string
 	String(const char *s) //¹1 constructor whith 1 argument
@@ -18,7 +18,7 @@ public:
 	{
 		return str;
 	}
-	int get_size() //¹4 length of string
+	unsigned int get_size() //¹4 length of string
 	{
 		return size;
 	}
@@ -46,33 +46,6 @@ public:
 		}
 	}
 };
-int main()
-{
-	String obj1;					 // initialisation
-	String obj2("How much watch?"); // initialisation 2
-	cout << obj2.get_str() << endl;
-	obj1.assign("Six clock.");
-	cout << obj1.get_str() << endl;
-	cout << "The length of your string - " << obj1.get_size() << endl;
-
-	obj1.assign("Such much? ");
-	obj1.concat("For whom how.");
-	cout << obj1.get_str() << endl;
-	cout << "The length of your string - " << obj1.get_size() << endl;
-
-	obj1.insertchar();
-	cout << obj1.get_str() << endl;
-
-	obj1.toupregister();
-	cout << obj1.get_str() << endl;
-
-	obj1.tolowregister();
-	cout << obj1.get_str() << endl;
-
-	obj1.codeascii();
-	cout << obj1.get_str() << endl;
-	return 0;
-}
 void String::assign(const char *s)
 {
 	if (str)
@@ -104,12 +77,11 @@ void String::insertchar()
 {
 	char ch = 'X';		//symbol to insert
 	unsigned int posit = 13;		//pisotoin to insert (only positiv!)
-	int maxiter;		//maximal volume of iterator
 	if (posit >= 0 && posit <= size)
 	{
 		++size;
 		char *newstr = new char[size];
-		for (unsigned int i = 0; str[i] != '\0'; ++i)
+		for (unsigned int i = 0; i< size - 1; ++i)
 		{
 			if (i < posit)
 				newstr[i] = str[i];
@@ -121,12 +93,38 @@ void String::insertchar()
 			}
 			else
 				newstr[i + 1] = str[i];
-			maxiter = i;
 		}
-		newstr[maxiter + 2] = '\0';
+
 		delete[] str;
 		str = newstr;
 	}
 	else
 		cout << "Enter right position" << endl;
+}
+int main()
+{
+	String obj1;					 // initialisation
+	String obj2("How much watch?"); // initialisation 2
+	cout << obj2.get_str() << endl;
+	obj1.assign("Six clock.");
+	cout << obj1.get_str() << endl;
+	cout << "The length of your string - " << obj1.get_size() << endl;
+
+	obj1.assign("Such much? ");
+	obj1.concat("For whom how.");
+	cout << obj1.get_str() << endl;
+	cout << "The length of your string - " << obj1.get_size() << endl;
+
+	obj1.insertchar();
+	cout << obj1.get_str() << endl;
+
+	obj1.toupregister();
+	cout << obj1.get_str() << endl;
+
+	obj1.tolowregister();
+	cout << obj1.get_str() << endl;
+
+	obj1.codeascii();
+	cout << obj1.get_str() << endl;
+	return 0;
 }
