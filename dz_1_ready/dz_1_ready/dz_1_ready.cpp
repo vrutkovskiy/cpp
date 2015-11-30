@@ -14,7 +14,7 @@ public:
 	{
 		assign(s);
 	}
-	char *get_str() //¹3 return string
+	const char *get_str() //¹3 return string
 	{
 		return str;
 	}
@@ -23,7 +23,7 @@ public:
 		return size;
 	}
 	void concat(const char *s); //¹5 add newstring to existing one
-	void insertchar(); //¹6 insert the symbol
+	void insertchar(char userch, unsigned int userposit); //¹6 insert the symbol
 	void codeascii() //¹7 code ascii
 	{
 		for (int i = 0; str[i] != '\0'; ++i)
@@ -73,10 +73,10 @@ void String::concat(const char *s)
 		str = strnew;
 	}
 }
-void String::insertchar()
+void String::insertchar(char userch, unsigned int userposit)
 {
-	char ch = 'X';		//symbol to insert
-	unsigned int posit = 13;		//pisotoin to insert (only positiv!)
+	char ch = userch;		//symbol to insert
+	unsigned int posit = userposit;		//pisotoin to insert (only positiv!)
 	if (posit >= 0 && posit <= size)
 	{
 		++size;
@@ -115,7 +115,7 @@ int main()
 	cout << obj1.get_str() << endl;
 	cout << "The length of your string - " << obj1.get_size() << endl;
 
-	obj1.insertchar();
+	obj1.insertchar('X', 13);
 	cout << obj1.get_str() << endl;
 
 	obj1.toupregister();
