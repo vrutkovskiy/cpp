@@ -16,7 +16,8 @@ class Game1
 {
 	game_resource personage;
 	mutable unsigned size = 0;
-public:	
+
+public:		
 	Game1() : personage{}, size(0) //default constructor	
 	{}
 	void assign(const char *persname);
@@ -61,7 +62,7 @@ public:
 	void get_game_res() const
 	{
 		if (personage.name)
-			cout << "	Name = " << personage.name << "	Adress of pointer - " << &personage.name << endl;
+			cout << "	Name = " << personage.name << "	Adress of pointer - " << &personage.name << "	Adress of Name - " << (int*)personage.name << endl;
 		else
 			cout << "	Name = ---"<< endl;
 		cout << "	Life = " << personage.life << endl;
@@ -123,7 +124,7 @@ public:
 	void get_game_res() const
 	{
 		if (personage.name)
-			cout << "	Name = " << personage.name << "	Adress of pointer - " << &personage.name << endl;
+			cout << "	Name = " << personage.name << "	Adress of pointer - " << &personage.name << "	Adress of Name - " << (int*)personage.name << endl;
 		else
 			cout << "	Name = ---" << endl;
 		cout << "	Life = " << personage.life << endl;
