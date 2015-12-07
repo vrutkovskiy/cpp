@@ -7,9 +7,9 @@ using namespace std;
 
 struct game_resource
 {
-	mutable char *name = nullptr;
+	mutable char* name = nullptr;
 	mutable int life = 100;
-	mutable unsigned *count = nullptr;
+	mutable unsigned* count = nullptr;
 };
 
 class Game1
@@ -20,13 +20,13 @@ class Game1
 public:		
 	Game1() : personage{}, size(0) //default constructor	
 	{}
-	void assign(const char *persname);
-	Game1(const char *persname)
+	void assign(const char* persname);
+	Game1(const char* persname)
 	{
 		assign(persname);
 	}
 #if BREAKER == 1
-	Game1(const Game1 &newpers) :size(newpers.size)
+	Game1(const Game1& newpers) :size(newpers.size)
 	{
 		personage.name = newpers.personage.name;
 		personage.life = newpers.personage.life;
@@ -36,7 +36,7 @@ public:
 		newpers.size = 0;
 		newpers.personage.life = 0;
 	}
-	const Game1 &operator=(const Game1 &newpers)  
+	const Game1& operator=(const Game1& newpers)  
 	{
 		if (this == &newpers)
 			return *this;
@@ -56,8 +56,8 @@ public:
 #endif
 
 #if BREAKER == 2
-	Game1(const Game1 &newpers) = delete;
-	const Game1 &operator=(const Game1 &newpers) = delete;
+	Game1(const Game1& newpers) = delete;
+	const Game1& operator=(const Game1& newpers) = delete;
 #endif
 	void get_game_res() const
 	{
@@ -74,7 +74,6 @@ public:
 			cout << "	Length of personage name = " << size - 1 << endl;
 		else
 			cout << "	Length of personage name = " << size << endl;
-		
 	}
 
 	~Game1()
@@ -95,19 +94,19 @@ class Game2
 public:
 	Game2() : personage{}, size(0) //default constructor	
 	{}
-	void assign(const char *persname);
-	Game2(const char *persname)
+	void assign(const char* persname);
+	Game2(const char* persname)
 	{
 		assign(persname);
 	}
-	Game2(const Game2 &newpers) :size(newpers.size)
+	Game2(const Game2& newpers) :size(newpers.size)
 	{
 		personage.name = new char[size];
 		strcpy_s(personage.name, size, newpers.personage.name);
 		personage.life = newpers.personage.life;
 		
 	}
-	const Game2 &operator=(const Game2 &newpers)
+	const Game2& operator=(const Game2& newpers)
 	{
 		if (this == &newpers)
 			return *this;
@@ -132,12 +131,10 @@ public:
 			cout << "	Length of personage name = " << size - 1 << endl;
 		else
 			cout << "	Length of personage name = " << size << endl;
-
 	}
 
 	~Game2()
 	{
-		
 		if (personage.name)
 		{
 			delete[] personage.name;
@@ -215,7 +212,7 @@ int main()
 	
 	return 0;
 }
-void Game1::assign(const char *persname)
+void Game1::assign(const char* persname)
 {
 	if (personage.name)
 	{
@@ -230,7 +227,7 @@ void Game1::assign(const char *persname)
 		personage.count = new unsigned int(1);
 	}
 }
-void Game2::assign(const char *persname)
+void Game2::assign(const char* persname)
 {
 	if (personage.name)
 	{
