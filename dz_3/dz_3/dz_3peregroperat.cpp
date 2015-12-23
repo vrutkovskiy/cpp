@@ -41,17 +41,18 @@ public:
 
 	String& operator=(const String& obj)	// оператор копирования перегруженный
 	{
-		if (obj.str)
-		{
-			if (str)
-				delete[] str;
-			size = obj.size;
-			str = new char[size];
-			strcpy_s(str, size, obj.str);
+		if (&obj == this)
 			return *this;
-		}
-		else 
-			return *this;
+		else
+			if (obj.str)
+			{
+				if (str)
+					delete[] str;
+				size = obj.size;
+				str = new char[size];
+				strcpy_s(str, size, obj.str);
+				return *this;
+			}
 	}
 
 	bool operator>(const String& obj) const		//оператор > для строк перегруженный
@@ -250,7 +251,7 @@ istream& operator>> (istream& is, String& str)
 int main()
 {
 	int menu;
-	String obj1("Lon23don is the cap443ital of gre56at Britain.");
+	String obj1("3Lon23don is the cap443ital of gre56at Britain.4");
 	String obj2("Is there life on Mars?");
 	String obj3;
 
@@ -340,7 +341,9 @@ int main()
 
 		if (menu == 7)
 		{
+			cout << endl;
 			obj1.digitsearch();
+			cout << endl;
 		}
 
 		if (menu == 8)
