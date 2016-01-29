@@ -11,8 +11,8 @@ class IFigure
 	double a = 0;
 	double b = 0;
 public:
-	IFigure()
-	{}
+	IFigure() = default;
+	
 	IFigure(const double& usera, const double& userb) : a(usera), b(userb)
 	{}
 
@@ -34,8 +34,8 @@ class Rectangle : public IFigure
 	double a = 0;
 	double b = 0;
 public:
-	Rectangle()
-	{}
+	Rectangle() = default;
+
 	Rectangle(const double& usera, const double& userb) : a(usera), b(userb)
 	{}
 
@@ -67,8 +67,8 @@ class Circle : public IFigure
 	double r;
 	const double pi = 3.14;
 public:
-	Circle()
-	{}
+	Circle() = default;
+
 	Circle(const double& userr) : r(userr)
 	{}
 
@@ -77,7 +77,7 @@ public:
 
 	double square() override
 	{
-		return r * r;
+		return pi * r * r;
 	}
 	double perimeter() override
 	{
@@ -103,8 +103,8 @@ class Trapezium : public IFigure
 	double d = 0;
 	double h = 0;
 public:
-	Trapezium()
-	{}
+	Trapezium() = default;
+
 	Trapezium(const double& usera, const double& userb, const double& userc,\
 		const double& userd, const double& userh) :
 		a(usera), b(userb), c(userc), d(userd), h(userh)
