@@ -11,9 +11,9 @@ typedef /*std::*/basic_string<TCHAR> tstring;
 
 #ifdef _UNICODE
 
-#define to_tstring to_wstring
+#define to_tstring /*std::*/to_wstring
 #else
-#define to_tstring to_string
+#define to_tstring /*std::*/to_string
 #endif
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hInstprev, LPSTR lPCmdLine, int nCmdShow)
@@ -51,10 +51,10 @@ HICON hIconSm; //дискриптор маленькой иконки, если 
 
 	int size = (resume3.size()+resume2.size()+resume.size())/3;
 
-	resume3 += _T("\n\nСреднее количество символов на странице = ");
-	resume3 += to_tstring(size);
+	tstring head = _T("Среднее кол-во символов на странице = ");
+	head += to_tstring(size);
 
-	MessageBox(NULL, resume3.c_str(), _T("WinApi DZ №1a"),
+	MessageBox(NULL, resume3.c_str(), head.c_str(),
 		MB_OK /*Кнопка OK*/ | MB_ICONINFORMATION /*Иконка рядом с текстом*/);
 
 	return 0;
