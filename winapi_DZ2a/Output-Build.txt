@@ -1,0 +1,16 @@
+﻿1>------ Build started: Project: winapi_DZ2a, Configuration: Debug Win32 ------
+1>Build started 15.02.2016 17:54:22.
+1>InitializeBuildStatus:
+1>  Creating "Debug\winapi_DZ2a.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>ClCompile:
+1>  Source.cpp
+1>Link:
+1>  winapi_DZ2a.vcxproj -> I:\Программирование\repositotium\cpp\winapi_DZ2a\Debug\winapi_DZ2a.exe
+1>FinalizeBuildStatus:
+1>  Deleting file "Debug\winapi_DZ2a.tlog\unsuccessfulbuild".
+1>  Touching "Debug\winapi_DZ2a.tlog\winapi_DZ2a.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:00:00.94
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
