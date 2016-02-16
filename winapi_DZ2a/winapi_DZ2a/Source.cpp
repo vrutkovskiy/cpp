@@ -1,9 +1,9 @@
-//1)	Написать приложение, позволяющее при нажатии левой кнопки мыши изменить текст 
-//в заголовке окна стандартного приложения «Калькулятор», а при нажатии правой кнопки мыши 
-//сместить вправо кнопку «пуск», изменив на ней надпись.
-//2)	Написать приложение, обладающее следующей функциональностью :
-//•	при нажатии кнопки <Enter> окно позиционируется в левый верхний угол экрана с размерами(300Х300);
-//•	с помощью клавиш управления курсором осуществляется перемещение окна.
+п»ї//1)	РќР°РїРёСЃР°С‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ, РїРѕР·РІРѕР»СЏСЋС‰РµРµ РїСЂРё РЅР°Р¶Р°С‚РёРё Р»РµРІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё РёР·РјРµРЅРёС‚СЊ С‚РµРєСЃС‚ 
+//РІ Р·Р°РіРѕР»РѕРІРєРµ РѕРєРЅР° СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ В«РљР°Р»СЊРєСѓР»СЏС‚РѕСЂВ», Р° РїСЂРё РЅР°Р¶Р°С‚РёРё РїСЂР°РІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё 
+//СЃРјРµСЃС‚РёС‚СЊ РІРїСЂР°РІРѕ РєРЅРѕРїРєСѓ В«РїСѓСЃРєВ», РёР·РјРµРЅРёРІ РЅР° РЅРµР№ РЅР°РґРїРёСЃСЊ.
+//2)	РќР°РїРёСЃР°С‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ, РѕР±Р»Р°РґР°СЋС‰РµРµ СЃР»РµРґСѓСЋС‰РµР№ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊСЋ :
+//вЂў	РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё <Enter> РѕРєРЅРѕ РїРѕР·РёС†РёРѕРЅРёСЂСѓРµС‚СЃСЏ РІ Р»РµРІС‹Р№ РІРµСЂС…РЅРёР№ СѓРіРѕР» СЌРєСЂР°РЅР° СЃ СЂР°Р·РјРµСЂР°РјРё(300РҐ300);
+//вЂў	СЃ РїРѕРјРѕС‰СЊСЋ РєР»Р°РІРёС€ СѓРїСЂР°РІР»РµРЅРёСЏ РєСѓСЂСЃРѕСЂРѕРј РѕСЃСѓС‰РµСЃС‚РІР»СЏРµС‚СЃСЏ РїРµСЂРµРјРµС‰РµРЅРёРµ РѕРєРЅР°.
 
 #include <Windows.h>
 #include <tchar.h>
@@ -19,7 +19,7 @@ typedef std::basic_string<TCHAR> tstring;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-TCHAR szWindowClass[] = TEXT("ПРИЛОЖЕНИЕ");
+TCHAR szWindowClass[] = TEXT("РџР РР›РћР–Р•РќРР•");
 
 int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
@@ -48,7 +48,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 		return 1;
 	}
 
-	static TCHAR szTitle[] = _T("Изменение названия Калькулятора");
+	static TCHAR szTitle[] = _T("РР·РјРµРЅРµРЅРёРµ РЅР°Р·РІР°РЅРёСЏ РљР°Р»СЊРєСѓР»СЏС‚РѕСЂР°");
 
 	// The parameters to CreateWindow explained:
 	// szWindowClass: the name of the application
@@ -76,7 +76,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 		MessageBox(NULL,
 			_T("Call to CreateWindow failed!"),
 			_T("Win32 Guided Tour"),
-			NULL);  // вместо последнего NULL можно передать кнопку MB_OK или две кнопки сразу  MB_OK | MB_Cancel
+			NULL);  // РІРјРµСЃС‚Рѕ РїРѕСЃР»РµРґРЅРµРіРѕ NULL РјРѕР¶РЅРѕ РїРµСЂРµРґР°С‚СЊ РєРЅРѕРїРєСѓ MB_OK РёР»Рё РґРІРµ РєРЅРѕРїРєРё СЃСЂР°Р·Сѓ  MB_OK | MB_Cancel
 
 		return 1;
 	}
@@ -90,9 +90,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
-		TranslateMessage(&msg);		//переводит нажатую клавишу в ее код  (нажал кнопку посылается сообщение WM_CHAR с кодом нажатой кнопки )
-		// если ее убрать то будет выдавать состояние нажата/отпущена KEY_UP/KEY_DOWN  --- WM_CHAR не будет
-		DispatchMessage(&msg);		// обрабатывает сообщения
+		TranslateMessage(&msg);		//РїРµСЂРµРІРѕРґРёС‚ РЅР°Р¶Р°С‚СѓСЋ РєР»Р°РІРёС€Сѓ РІ РµРµ РєРѕРґ  (РЅР°Р¶Р°Р» РєРЅРѕРїРєСѓ РїРѕСЃС‹Р»Р°РµС‚СЃСЏ СЃРѕРѕР±С‰РµРЅРёРµ WM_CHAR СЃ РєРѕРґРѕРј РЅР°Р¶Р°С‚РѕР№ РєРЅРѕРїРєРё )
+		// РµСЃР»Рё РµРµ СѓР±СЂР°С‚СЊ С‚Рѕ Р±СѓРґРµС‚ РІС‹РґР°РІР°С‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ РЅР°Р¶Р°С‚Р°/РѕС‚РїСѓС‰РµРЅР° KEY_UP/KEY_DOWN  --- WM_CHAR РЅРµ Р±СѓРґРµС‚
+		DispatchMessage(&msg);		// РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚ СЃРѕРѕР±С‰РµРЅРёСЏ
 	}
 
 	return (int)msg.wParam;
@@ -101,33 +101,33 @@ int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCm
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)			
-// wparam получает код нажатой клавиши в данном случае, LPARAM - координаты курсора в данном случае 2байта и 2 байта
-// лучше пользоваться xPos = GET_X_LPARAM(lParam); yPos = GET_Y_LPARAM(lParam);
+// wparam РїРѕР»СѓС‡Р°РµС‚ РєРѕРґ РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рё РІ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ, LPARAM - РєРѕРѕСЂРґРёРЅР°С‚С‹ РєСѓСЂСЃРѕСЂР° РІ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ 2Р±Р°Р№С‚Р° Рё 2 Р±Р°Р№С‚Р°
+// Р»СѓС‡С€Рµ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ xPos = GET_X_LPARAM(lParam); yPos = GET_Y_LPARAM(lParam);
 {
 	switch (message)
 	{
 		case WM_LBUTTONDOWN:
 		{
-			HWND hCalc = FindWindow(_T("CalcFrame"), _T("Калькулятор"));	//ищет дескриптор калькулятора (если он открыт то найдет)
-			//первый пареметр класс окна, второй имя окна		
-			tstring newname = _T("СУПЕР КАЛЬКУЛЯТОР");
+			HWND hCalc = FindWindow(_T("CalcFrame"), _T("РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ"));	//РёС‰РµС‚ РґРµСЃРєСЂРёРїС‚РѕСЂ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂР° (РµСЃР»Рё РѕРЅ РѕС‚РєСЂС‹С‚ С‚Рѕ РЅР°Р№РґРµС‚)
+			//РїРµСЂРІС‹Р№ РїР°СЂРµРјРµС‚СЂ РєР»Р°СЃСЃ РѕРєРЅР°, РІС‚РѕСЂРѕР№ РёРјСЏ РѕРєРЅР°		
+			tstring newname = _T("РЎРЈРџР•Р  РљРђР›Р¬РљРЈР›РЇРўРћР ");
 			if (hCalc)
-				SetWindowText(hCalc, newname.c_str());	//hwnd(идентификатор программы) - смотреть через spy++
+				SetWindowText(hCalc, newname.c_str());	//hwnd(РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂРѕРіСЂР°РјРјС‹) - СЃРјРѕС‚СЂРµС‚СЊ С‡РµСЂРµР· spy++
 			break;
 		}
 		case WM_RBUTTONDOWN:
 		{
 			RECT pWndsize;
 			HWND parent = FindWindow(_T("Shell_TrayWnd"), NULL);  
-			HWND btnstart = FindWindowEx(parent, NULL,_T("Button"), _T("ПУСК")); //win7 не находит
-			/*HWND btnstart = FindWindow(_T("Button"), _T("ПУСК"));*/
+			HWND btnstart = FindWindowEx(parent, NULL,_T("Button"), _T("РџРЈРЎРљ")); //win7 РЅРµ РЅР°С…РѕРґРёС‚
+			/*HWND btnstart = FindWindow(_T("Button"), _T("РџРЈРЎРљ"));*/
 			if (btnstart)
-				if (GetWindowRect(btnstart, &pWndsize)) // получить размеры окна
+				if (GetWindowRect(btnstart, &pWndsize)) // РїРѕР»СѓС‡РёС‚СЊ СЂР°Р·РјРµСЂС‹ РѕРєРЅР°
 				{
 					MoveWindow(btnstart, pWndsize.left + 10, pWndsize.top, 
 						pWndsize.right - pWndsize.left, pWndsize.bottom - pWndsize.top, TRUE); 
-					//смещение окна на 10 пикселей новая координата верннего левого угла Х и У, 
-					//размеры окна, и последним параметром БУЛ тип - перерисовывать окно или нет
+					//СЃРјРµС‰РµРЅРёРµ РѕРєРЅР° РЅР° 10 РїРёРєСЃРµР»РµР№ РЅРѕРІР°СЏ РєРѕРѕСЂРґРёРЅР°С‚Р° РІРµСЂРЅРЅРµРіРѕ Р»РµРІРѕРіРѕ СѓРіР»Р° РҐ Рё РЈ, 
+					//СЂР°Р·РјРµСЂС‹ РѕРєРЅР°, Рё РїРѕСЃР»РµРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј Р‘РЈР› С‚РёРї - РїРµСЂРµСЂРёСЃРѕРІС‹РІР°С‚СЊ РѕРєРЅРѕ РёР»Рё РЅРµС‚
 				}
 			break;
 		}
@@ -164,7 +164,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 		}
 		case WM_DESTROY:
-			PostQuitMessage(0);  // генерирует сообщение wm_quit возвращает наружу 0
+			PostQuitMessage(0);  // РіРµРЅРµСЂРёСЂСѓРµС‚ СЃРѕРѕР±С‰РµРЅРёРµ wm_quit РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°СЂСѓР¶Сѓ 0
 			break;
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
