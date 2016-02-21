@@ -133,6 +133,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 		case WM_KEYDOWN:
 		{
+			int xMaxres = GetSystemMetrics(SM_CXSCREEN);	//максимальная ширина главного экрана 
+			int yMaxres = GetSystemMetrics(SM_CYSCREEN);	//максимальная высота главного экрана
 			RECT pWndsize;
 			GetWindowRect(hWnd, &pWndsize);
 			switch (wParam)
@@ -141,7 +143,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					MoveWindow(hWnd, 0, 0, 300, 300, TRUE);
 					break;
 				case VK_RIGHT:
-					if (pWndsize.left < (1880 - (pWndsize.right - pWndsize.left)-200))
+					if (pWndsize.left < (xMaxres - (pWndsize.right - pWndsize.left)))
 						MoveWindow(hWnd, pWndsize.left + 10, pWndsize.top, pWndsize.right - pWndsize.left,
 						pWndsize.bottom - pWndsize.top, TRUE);
 					break;
@@ -156,7 +158,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						pWndsize.bottom - pWndsize.top, TRUE);
 					break;
 				case VK_DOWN:
-					if (pWndsize.top <(1030 - (pWndsize.bottom - pWndsize.top)))
+					if (pWndsize.top <(yMaxres - (pWndsize.bottom - pWndsize.top)))
 						MoveWindow(hWnd, pWndsize.left, pWndsize.top + 10, pWndsize.right - pWndsize.left,
 						pWndsize.bottom - pWndsize.top, TRUE);
 					break;

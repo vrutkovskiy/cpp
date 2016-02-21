@@ -1,19 +1,19 @@
-//Разработать приложение, созданное на основе диалогового окна, и обладающее следующей функциональностью.
-//•	Пользователь «щелкает» левой кнопкой мыши по форме диалога и, не отпуская кнопку, 
-//ведёт по ней мышку, а в момент отпускания кнопки по полученным координатам 
-//прямоугольника(как известно, двух точек на плоскости достаточно для создания прямоугольника) 
-//создаётся «статик», который содержит свой порядковый номер(имеется в виду порядок появления «статика» на форме).
-//•	Минимальный размер «статика» составляет 10х10, а при попытке создания элемента 
-//управления меньших размеров пользователь должен увидеть соответствующее предупреждение.
-//•	При щелчке правой кнопкой мыши над поверхностью «статика» в заголовке окна должна 
-//появиться информация о статике(порядковый номер «статика», ширина и высота, а также 
-//координаты «статика» относительно родительского окна). В случае если в точке щелчка 
-//находится несколько «статиков», то предпочтение отдается «статику» с наибольшим порядковым номером.
-//•	При двойном щелчке левой кнопки мыши над поверхностью «статика» он должен 
-//исчезнуть с формы(для этого можно воспользоваться функцией DestroyWindow, вызывая 
-//её для соответствующего объекта «статика»).В случае если в точке щелчка находится 
-//несколько «статиков», то предпочтение отдается «статику» с наименьшим порядковым номером.
-//При разработке приложения рекомендуется использовать библиотеку STL.
+п»ї//Р Р°Р·СЂР°Р±РѕС‚Р°С‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ, СЃРѕР·РґР°РЅРЅРѕРµ РЅР° РѕСЃРЅРѕРІРµ РґРёР°Р»РѕРіРѕРІРѕРіРѕ РѕРєРЅР°, Рё РѕР±Р»Р°РґР°СЋС‰РµРµ СЃР»РµРґСѓСЋС‰РµР№ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊСЋ.
+//вЂў	РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ В«С‰РµР»РєР°РµС‚В» Р»РµРІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё РїРѕ С„РѕСЂРјРµ РґРёР°Р»РѕРіР° Рё, РЅРµ РѕС‚РїСѓСЃРєР°СЏ РєРЅРѕРїРєСѓ, 
+//РІРµРґС‘С‚ РїРѕ РЅРµР№ РјС‹С€РєСѓ, Р° РІ РјРѕРјРµРЅС‚ РѕС‚РїСѓСЃРєР°РЅРёСЏ РєРЅРѕРїРєРё РїРѕ РїРѕР»СѓС‡РµРЅРЅС‹Рј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј 
+//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°(РєР°Рє РёР·РІРµСЃС‚РЅРѕ, РґРІСѓС… С‚РѕС‡РµРє РЅР° РїР»РѕСЃРєРѕСЃС‚Рё РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР°) 
+//СЃРѕР·РґР°С‘С‚СЃСЏ В«СЃС‚Р°С‚РёРєВ», РєРѕС‚РѕСЂС‹Р№ СЃРѕРґРµСЂР¶РёС‚ СЃРІРѕР№ РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ(РёРјРµРµС‚СЃСЏ РІ РІРёРґСѓ РїРѕСЂСЏРґРѕРє РїРѕСЏРІР»РµРЅРёСЏ В«СЃС‚Р°С‚РёРєР°В» РЅР° С„РѕСЂРјРµ).
+//вЂў	РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ В«СЃС‚Р°С‚РёРєР°В» СЃРѕСЃС‚Р°РІР»СЏРµС‚ 10С…10, Р° РїСЂРё РїРѕРїС‹С‚РєРµ СЃРѕР·РґР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р° 
+//СѓРїСЂР°РІР»РµРЅРёСЏ РјРµРЅСЊС€РёС… СЂР°Р·РјРµСЂРѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґРѕР»Р¶РµРЅ СѓРІРёРґРµС‚СЊ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ.
+//вЂў	РџСЂРё С‰РµР»С‡РєРµ РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РјС‹С€Рё РЅР°Рґ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ В«СЃС‚Р°С‚РёРєР°В» РІ Р·Р°РіРѕР»РѕРІРєРµ РѕРєРЅР° РґРѕР»Р¶РЅР° 
+//РїРѕСЏРІРёС‚СЊСЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃС‚Р°С‚РёРєРµ(РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ В«СЃС‚Р°С‚РёРєР°В», С€РёСЂРёРЅР° Рё РІС‹СЃРѕС‚Р°, Р° С‚Р°РєР¶Рµ 
+//РєРѕРѕСЂРґРёРЅР°С‚С‹ В«СЃС‚Р°С‚РёРєР°В» РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЂРѕРґРёС‚РµР»СЊСЃРєРѕРіРѕ РѕРєРЅР°). Р’ СЃР»СѓС‡Р°Рµ РµСЃР»Рё РІ С‚РѕС‡РєРµ С‰РµР»С‡РєР° 
+//РЅР°С…РѕРґРёС‚СЃСЏ РЅРµСЃРєРѕР»СЊРєРѕ В«СЃС‚Р°С‚РёРєРѕРІВ», С‚Рѕ РїСЂРµРґРїРѕС‡С‚РµРЅРёРµ РѕС‚РґР°РµС‚СЃСЏ В«СЃС‚Р°С‚РёРєСѓВ» СЃ РЅР°РёР±РѕР»СЊС€РёРј РїРѕСЂСЏРґРєРѕРІС‹Рј РЅРѕРјРµСЂРѕРј.
+//вЂў	РџСЂРё РќРђР–РђРўРР РЎР Р•Р”РќР•Р™ РєРЅРѕРїРєРё РјС‹С€Рё РЅР°Рґ РїРѕРІРµСЂС…РЅРѕСЃС‚СЊСЋ В«СЃС‚Р°С‚РёРєР°В» РѕРЅ РґРѕР»Р¶РµРЅ 
+//РёСЃС‡РµР·РЅСѓС‚СЊ СЃ С„РѕСЂРјС‹(РґР»СЏ СЌС‚РѕРіРѕ РјРѕР¶РЅРѕ РІРѕСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ С„СѓРЅРєС†РёРµР№ DestroyWindow, РІС‹Р·С‹РІР°СЏ 
+//РµС‘ РґР»СЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ РѕР±СЉРµРєС‚Р° В«СЃС‚Р°С‚РёРєР°В»).Р’ СЃР»СѓС‡Р°Рµ РµСЃР»Рё РІ С‚РѕС‡РєРµ С‰РµР»С‡РєР° РЅР°С…РѕРґРёС‚СЃСЏ 
+//РЅРµСЃРєРѕР»СЊРєРѕ В«СЃС‚Р°С‚РёРєРѕРІВ», С‚Рѕ РїСЂРµРґРїРѕС‡С‚РµРЅРёРµ РѕС‚РґР°РµС‚СЃСЏ В«СЃС‚Р°С‚РёРєСѓВ» СЃ РЅР°РёРјРµРЅСЊС€РёРј РїРѕСЂСЏРґРєРѕРІС‹Рј РЅРѕРјРµСЂРѕРј.
+//РџСЂРё СЂР°Р·СЂР°Р±РѕС‚РєРµ РїСЂРёР»РѕР¶РµРЅРёСЏ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ STL.
 
 #include <Windows.h>
 #include <tchar.h>
@@ -31,17 +31,44 @@ typedef std::basic_string<TCHAR> tstring;
 #define to_tstring std::to_string
 #endif
 
+struct parametrs
+{
+	HWND parhW = { 0 };
+	int xbegin = 0;
+	int ybegin = 0;
+	int xend = 0;
+	int yend = 0;
+	int parcounter = 0;
+
+	parametrs() = default;
+	parametrs(HWND& hW, int x, int y, int x2, int y2, int cnt) :
+		parhW(hW), xbegin(x), ybegin(y), xend(x2), yend(y2), parcounter(cnt)
+	{}
+	//parametrs(parametrs& par)
+	//{
+	//	parhW = par.parhW;		// РїРѕРґРїСЂР°РІРёС‚СЊ. Р° С‚Рѕ РЅРµ С…РѕС‡РµС‚ РєРѕРїРёСЂРѕРІР°С‚СЊ. РџРћР”РЎРљРђР–РРўР•????
+	//	xbegin = par.xbegin;
+	//	ybegin = par.ybegin;
+	//	xend = par.xend;
+	//	yend = par.yend;
+	//	parcounter = par.parcounter;
+	//}
+	/*parametrs& operator=(parametrs& par) = delete;*/ // РїРѕРґРїСЂР°РІРёС‚СЊ. С‚РѕР¶Рµ СЃР°РјРѕРµ. РџРћР”РЎРљРђР–РРўР•????
+	~parametrs() = default;
+};
+std::vector<parametrs> vectpar;
+
 BOOL CALLBACK DlgProc(HWND, UINT, WPARAM, LPARAM);
 
-TCHAR szWindowClass[] = TEXT("ПРИЛОЖЕНИЕ");
+TCHAR szWindowClass[] = TEXT("РџР РР›РћР–Р•РќРР•");
 
 HINSTANCE hInst;
 
-int APIENTRY _tWinMain(HINSTANCE hInstance /*дескриптор текущего приложения*/, HINSTANCE hPrevInstance/*дескриптор предыдущего приложения*/,
-	LPTSTR lpCmdLine/*переданные параметры программе*/, INT nCmdShow/*возможность отображение консоли*/)
+int APIENTRY _tWinMain(HINSTANCE hInstance /*РґРµСЃРєСЂРёРїС‚РѕСЂ С‚РµРєСѓС‰РµРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ*/, HINSTANCE hPrevInstance/*РґРµСЃРєСЂРёРїС‚РѕСЂ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ*/,
+	LPTSTR lpCmdLine/*РїРµСЂРµРґР°РЅРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РїСЂРѕРіСЂР°РјРјРµ*/, INT nCmdShow/*РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РєРѕРЅСЃРѕР»Рё*/)
 {
 	hInst = hInstance;
-	HWND hDlg = CreateDialog(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgProc); //создает немодальный диалог 
+	HWND hDlg = CreateDialog(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgProc); //СЃРѕР·РґР°РµС‚ РЅРµРјРѕРґР°Р»СЊРЅС‹Р№ РґРёР°Р»РѕРі 
 	ShowWindow(hDlg, TRUE);
 
 	MSG msg = { 0 };
@@ -51,9 +78,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance /*дескриптор текущего приложения*/, H
 		DispatchMessage(&msg);
 	}
 
-	//return DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1)/*принимает строку, а IDD это число*/, NULL, DlgProc);
-	// создает модальный диалог Invisible = TRUE/FALSE без разницы (запрещает дальнейшее выполнение программы пока открыт)
-	return msg.wParam; //post_quit_message последнее сообщение вернет
+	//return DialogBox(hInstance, MAKEINTRESOURCE(IDD_DIALOG1)/*РїСЂРёРЅРёРјР°РµС‚ СЃС‚СЂРѕРєСѓ, Р° IDD СЌС‚Рѕ С‡РёСЃР»Рѕ*/, NULL, DlgProc);
+	// СЃРѕР·РґР°РµС‚ РјРѕРґР°Р»СЊРЅС‹Р№ РґРёР°Р»РѕРі Invisible = TRUE/FALSE Р±РµР· СЂР°Р·РЅРёС†С‹ (Р·Р°РїСЂРµС‰Р°РµС‚ РґР°Р»СЊРЅРµР№С€РµРµ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹ РїРѕРєР° РѕС‚РєСЂС‹С‚)
+	return msg.wParam; //post_quit_message РїРѕСЃР»РµРґРЅРµРµ СЃРѕРѕР±С‰РµРЅРёРµ РІРµСЂРЅРµС‚
 }
 
 BOOL CALLBACK DlgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -63,57 +90,111 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	switch (msg)
 	{
-	case WM_LBUTTONDOWN:
-	{	
-						xPos1 = GET_X_LPARAM(lParam);		// координаты
-						yPos1 = GET_Y_LPARAM(lParam);
-						break;
-	}
-	case WM_LBUTTONUP:
-	{
-						xPos2 = GET_X_LPARAM(lParam);		// координаты
-						yPos2 = GET_Y_LPARAM(lParam);
-						SendMessage(hWnd, WM_CREATE, 0,0);
-						break;
-	}
-	case WM_CREATE:
-	{
-					  if (xPos2 < xPos1)
-						  std::swap(xPos2, xPos1);
-					  if (yPos2 < yPos1)
-						  std::swap(yPos2, yPos1);
-					  int hWidth = xPos2 - xPos1;
-					  int hHight = yPos2 - yPos1;
-					  if (hWidth < 10 || hHight < 10)
-					  {
-						  MessageBox(NULL, _T("Вы выделили слишком маленький участок\n поэтому размеры установлены 20х20 пикселей"), 
-							  _T("ВНИМАНИЕ!!!"), MB_OK | MB_ICONINFORMATION);
-						  hWidth = 20;
-						  hHight = 20;
-					  }
-
-					  tstring counter = to_tstring(++count);
-					  CreateWindowEx(0, _T("STATIC"), counter.c_str(), WS_CHILD | WS_VISIBLE | WS_BORDER,
-						  xPos1, yPos1, hWidth, hHight, hWnd, 0, hInst, 0);
-					  break;
-	}
-	case WM_LBUTTONDBLCLK:
-	{
-							 FindWindowEx();
-							 break;
-	}
-	case WM_RBUTTONDOWN:
-	{
-					
-						   break;
-	}
-	case WM_CLOSE:
-	{
-					 DestroyWindow(hWnd); //для createdialog 
-					 PostQuitMessage(0);
-					 //EndDialog(hWnd, 0); //дискриптор, возвращаемое значение для dialogbox
-					 return TRUE;
-	}
+		case WM_LBUTTONDOWN:
+		{	
+			xPos1 = GET_X_LPARAM(lParam);		// РєРѕРѕСЂРґРёРЅР°С‚С‹
+			yPos1 = GET_Y_LPARAM(lParam);
+			break;
+		}
+		case WM_LBUTTONUP:
+		{
+			xPos2 = GET_X_LPARAM(lParam);		// РєРѕРѕСЂРґРёРЅР°С‚С‹
+			yPos2 = GET_Y_LPARAM(lParam);
+			SendMessage(hWnd, WM_CREATE, 0,0);
+			break;
+		}
+		case WM_CREATE:
+		{
+			if (xPos2 < xPos1)
+				std::swap(xPos2, xPos1);
+			if (yPos2 < yPos1)
+				std::swap(yPos2, yPos1);
+			int hWidth = xPos2 - xPos1;
+			int hHight = yPos2 - yPos1;
+			if (hWidth < 10 || hHight < 10)
+			{
+				MessageBox(NULL, 
+					_T("Р’С‹ РІС‹РґРµР»РёР»Рё СЃР»РёС€РєРѕРј РјР°Р»РµРЅСЊРєРёР№ СѓС‡Р°СЃС‚РѕРє\n РїРѕСЌС‚РѕРјСѓ СЂР°Р·РјРµСЂС‹ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ 20С…20 РїРёРєСЃРµР»РµР№"), 
+					_T("Р’РќРРњРђРќРР•!!!"), MB_OK | MB_ICONINFORMATION);
+				hWidth = 20;
+				hHight = 20;
+				xPos2 = xPos1 + 20;
+				yPos2 = yPos1 + 20;
+			}
+			tstring counter = to_tstring(++count);
+			HWND hW = CreateWindowEx(0, _T("STATIC"), counter.c_str(), WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP,
+				xPos1, yPos1, hWidth, hHight, hWnd, 0, hInst, 0);
+			parametrs par1(hW, xPos1, yPos1, xPos2, yPos2, count); 
+			vectpar.push_back(par1);
+			break;
+		}
+		case WM_MBUTTONDOWN:
+		{
+			int xPos3 = GET_X_LPARAM(lParam);		// РєРѕРѕСЂРґРёРЅР°С‚С‹
+			int yPos3 = GET_Y_LPARAM(lParam);
+			int min = 10000;		//РјРёРЅРёРјР°Р»СЊРЅС‹Р№ РєР°СѓРЅС‚РµСЂ
+			int iteratmin = 0;	//РёС‚РµСЂР°С‚РѕСЂ СЃ РјРёРЅРёРјР°Р»СЊРЅС‹Рј РєР°СѓРЅС‚РµСЂРѕРј
+			int flag = 0;		
+			for (unsigned i = 0; i < vectpar.size(); ++i)
+				if (xPos3>vectpar.at(i).xbegin && xPos3<vectpar.at(i).xend
+					&& yPos3>vectpar.at(i).ybegin && yPos3 < vectpar.at(i).yend)
+				{
+					if (min > vectpar.at(i).parcounter) //РЅР°С…РѕРґРёРј РјРёРЅ РєР°СѓРЅС‚РµСЂ
+					{
+						min = vectpar.at(i).parcounter;
+						iteratmin = i;
+						flag = 1;
+					}
+				}
+			if (flag)
+			{
+				DestroyWindow(vectpar.at(iteratmin).parhW); //СѓРґР°Р»СЏРµРј РѕРєРЅРѕ
+				vectpar.erase(vectpar.begin() + iteratmin);	//СѓРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚ РёР· РІРµРєС‚РѕСЂР° Рё С‚СѓС‚ РЅР°РІРµСЂРЅРѕРµ HWND СѓР¶Рµ РЅРµС‚Сѓ
+				flag = 0;
+			}
+			break;
+		}
+		case WM_RBUTTONDOWN:
+		{
+			int	xPos3 = GET_X_LPARAM(lParam);		// РєРѕРѕСЂРґРёРЅР°С‚С‹
+			int yPos3 = GET_Y_LPARAM(lParam);
+			int max = 0;	//РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєР°СѓРЅС‚РµСЂ
+			int iteratmax = 0;	//РёС‚РµСЂР°С‚РѕСЂ РЅР° РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РєСѓР°РЅС‚РµСЂ
+			int flag = 0;
+			for (unsigned i = 0; i < vectpar.size(); ++i)
+				if ((xPos3>vectpar.at(i).xbegin && xPos3<vectpar.at(i).xend)
+					&& (yPos3>vectpar.at(i).ybegin && yPos3 < vectpar.at(i).yend))
+				{
+					if (max < vectpar.at(i).parcounter)
+					{
+						max = vectpar.at(i).parcounter;
+						iteratmax = i;
+						flag = 1;
+					}
+				}
+			if (flag)
+			{
+				/*TCHAR buf[256];*/
+				/*GetWindowText(vectpar.at(i).parhW, buf, 256);*/
+				tstring head = _T("в„– СЃС‚Р°С‚РёРєР° = "); head += to_tstring(vectpar.at(iteratmax).parcounter);
+				head += _T(", X1 = "); head += to_tstring(vectpar.at(iteratmax).xbegin);
+				head += _T(", X2 = "); head += to_tstring(vectpar.at(iteratmax).xend);
+				head += _T(", Y1 = "); head += to_tstring(vectpar.at(iteratmax).ybegin);
+				head += _T(", y2 = "); head += to_tstring(vectpar.at(iteratmax).yend);
+				head += _T(", С€РёСЂРёРЅР° = "); head += to_tstring(vectpar.at(iteratmax).xend - vectpar.at(iteratmax).xbegin);
+				head += _T(", РІС‹СЃРѕС‚Р° = "); head += to_tstring(vectpar.at(iteratmax).yend - vectpar.at(iteratmax).ybegin);
+				SetWindowText(hWnd, head.c_str());
+				flag = 0;
+			}
+			break;
+		}
+		case WM_CLOSE:
+		{
+			 DestroyWindow(hWnd); //РґР»СЏ createdialog 
+			 PostQuitMessage(0);
+			 //EndDialog(hWnd, 0); //РґРёСЃРєСЂРёРїС‚РѕСЂ, РІРѕР·РІСЂР°С‰Р°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ dialogbox
+			 return TRUE;
+		}
 	}
 	return FALSE;
 }
